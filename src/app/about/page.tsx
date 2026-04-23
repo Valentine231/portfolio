@@ -15,10 +15,13 @@ export default function AboutPage() {
         </h1>
         <div className="prose prose-lg dark:prose-invert text-gray-600 dark:text-gray-300">
           <p className="leading-relaxed">
-            I am a passionate software developer dedicated to crafting modern and engaging web experiences. 
-            With a strong focus on clean code and pixel-perfect design, I enjoy transforming complex problems 
-            into elegant, intuitive interfaces. My journey is driven by continuous learning and a desire to 
-            build products that users love.
+            I’m Valentine Ugwu, a frontend developer based in Nigeria, crafting modern web applications that are fast, intuitive, and visually refined.
+
+I specialize in React and Next.js, building interfaces that go beyond functionality—focused on performance, seamless user experience, and thoughtful interaction. My work includes API integrations, authentication systems, and real-world features like payments and dynamic data handling.
+
+I approach every project with a product mindset, paying close attention to structure, scalability, and the subtle details that elevate a good interface into a great one.
+
+I’m currently open to remote opportunities, collaborating with teams to build high-quality digital experiences that make an impact.
           </p>
         </div>
       </AnimatedSection>
