@@ -25,8 +25,8 @@ export function TechStack() {
           viewport={{ once: true }}
           className="mb-12 text-center md:text-left"
         >
-          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl text-white">Tech Stack</h2>
-          <p className="text-white/60 max-w-2xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Tech Stack</h2>
+          <p className="text-foreground/60 max-w-2xl">
             A comprehensive list of the modern technologies I use to build scalable, high-performance web applications.
           </p>
         </motion.div>
@@ -46,8 +46,8 @@ export function TechStack() {
                 {tech.icon}
               </div>
               <div>
-                <h3 className="font-semibold text-foreground group-hover:text-white transition-colors">{tech.name}</h3>
-                <p className="text-sm text-white/50">{tech.category}</p>
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{tech.name}</h3>
+                <p className="text-sm text-foreground/50">{tech.category}</p>
               </div>
             </motion.div>
           ))}

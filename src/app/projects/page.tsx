@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useStore } from "@/store/useStore";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ProjectCard } from "@/components/ProjectCard";
+import { title } from "process";
 
 const filters = ["All", "React", "API", "Fullstack"];
 
@@ -35,6 +36,17 @@ const projects = [
     image: "/images/Screenshot from 2026-04-23 00-05-33.png",
     link: "https://my-box-seven.vercel.app/",
   },
+   ,
+    {
+      id: 4,
+      title: "50 reuseable UI Component Library",
+      description: "A sleek and modern UI component library built with next.js and Tailwind CSS, designed to help developers create beautiful interfaces with ease.",
+      tags: ["nextjs", "Zustand", "Tailwind CSS","framer-motion"],
+      image: "/images/Screenshot from 2026-05-02 12-27-41.png",
+      stack: ["nextjs", "Zustand", "Tailwind CSS","framer-motion"],
+      link: "https://reuseable-ui.vercel.app/",
+     
+    }
 
 ];
 
@@ -48,7 +60,7 @@ export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
       <AnimatedSection>
-        <h1 className="mb-8 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl">
+        <h1 className="mb-8 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
           Projects
         </h1>
         
@@ -60,8 +72,8 @@ export default function ProjectsPage() {
               onClick={() => setActiveFilter(filter)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeFilter === filter
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-foreground/5 text-foreground/70 hover:bg-foreground/10 hover:text-foreground"
               }`}
             >
               {filter}

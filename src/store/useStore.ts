@@ -1,19 +1,42 @@
-import { create } from 'zustand';
+"use client";
+
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 interface AppState {
-  theme: 'dark' | 'light';
-  setTheme: (theme: 'dark' | 'light') => void;
   activeFilter: string;
-  setActiveFilter: (filter: string) => void;
   isCommandMenuOpen: boolean;
-  setCommandMenuOpen: (isOpen: boolean) => void;
 }
 
-export const useStore = create<AppState>((set) => ({
-  theme: 'dark', // Dark mode by default
-  setTheme: (theme) => set({ theme }),
-  activeFilter: 'All', // Default filter for projects
-  setActiveFilter: (activeFilter) => set({ activeFilter }),
+const defaultState: AppState = {
+  activeFilter: "All",
   isCommandMenuOpen: false,
-  setCommandMenuOpen: (isCommandMenuOpen) => set({ isCommandMenuOpen }),
-}));
+};
+
+export function useStore() {
+  const queryClient = useQueryClient();
+
+  const { data } = useQuery<AppState>({
+    queryKey: ["app-store"],
+    queryFn: () => defaultState,
+    initialData: defaultState,
+    staleTime: Infinity,
+  });
+
+  const state = data || defaultState;
+
+  const setActiveFilter = (filter: string) => {
+    queryClient.setQueryData<AppState>(["app-store"], (old) => ({
+      ...(old || defaultState),
+      activeFilter: filter,
+    }));
+  };
+
+  const setCommandMenuOpen = (isOpen: boolean) => {
+    queryClient.setQueryData<AppState>(["app-store"], (old) => ({
+      ...(old || defaultState),
+      isCommandMenuOpen: isOpen,
+    }));
+  };
+
+  return { ...state, setActiveFilter, setCommandMenuOpen };
+}

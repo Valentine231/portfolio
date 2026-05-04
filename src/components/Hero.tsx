@@ -46,7 +46,7 @@ export function Hero() {
         
         <motion.h1
           variants={itemVariants}
-          className="mb-6 text-5xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60"
+          className="mb-6 text-5xl font-extrabold tracking-tight sm:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60"
         >
           Senior Frontend
           <br className="hidden sm:block" />
@@ -55,7 +55,7 @@ export function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="mx-auto mb-10 max-w-2xl text-lg text-white/60 sm:text-xl"
+          className="mx-auto mb-10 max-w-2xl text-lg text-foreground/60 sm:text-xl"
         >
           I build modern, clean, and interactive user interfaces with a focus on seamless user experiences, minimal aesthetics, and high performance.
         </motion.p>
@@ -74,7 +74,7 @@ export function Hero() {
           
           <a
             href="#contact"
-            className="flex w-full items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-white ring-1 ring-white/10 transition-all glass-hover sm:w-auto"
+            className="flex w-full items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-medium text-foreground ring-1 ring-foreground/10 transition-all glass-hover sm:w-auto"
           >
             <Mail className="h-4 w-4" />
             Contact Me

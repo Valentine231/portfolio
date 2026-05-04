@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { CommandMenu } from "@/components/CommandMenu";
 import { PageTransition } from "@/components/PageTransition";
+import { Providers } from "@/components/Providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,14 +34,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100 selection:bg-primary/30">
-        <CommandMenu />
-        <div className="relative flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-1 pt-16">
-            <PageTransition>{children}</PageTransition>
-          </main>
-          <Footer />
-        </div>
+        <Providers>
+          <CommandMenu />
+          <div className="relative flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1 pt-16">
+              <PageTransition>{children}</PageTransition>
+            </main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   );

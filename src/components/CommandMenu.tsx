@@ -5,10 +5,12 @@ import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
 import { Search, Home, User, Briefcase, Mail } from "lucide-react";
 import { useStore } from "@/store/useStore";
+import { useTheme } from "@/hooks/useTheme";
 
 export function CommandMenu() {
   const router = useRouter();
   const { isCommandMenuOpen: open, setCommandMenuOpen: setOpen } = useStore();
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -88,7 +90,7 @@ export function CommandMenu() {
             <Command.Group heading="Theme" className="text-xs font-medium text-gray-500 dark:text-gray-400 p-2 mt-2">
               <Command.Item
                 onSelect={() => {
-                  useStore.getState().setTheme("dark");
+                  setTheme("dark");
                   setOpen(false);
                 }}
                 className="flex cursor-pointer items-center rounded-md px-2 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-100"
@@ -97,7 +99,7 @@ export function CommandMenu() {
               </Command.Item>
               <Command.Item
                 onSelect={() => {
-                  useStore.getState().setTheme("light");
+                  setTheme("light");
                   setOpen(false);
                 }}
                 className="flex cursor-pointer items-center rounded-md px-2 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 dark:text-gray-100"

@@ -23,8 +23,7 @@ export function ProjectCard({ project, idx }: ProjectCardProps) {
         layout
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        className="group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg"
+        className="group relative overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-sm transition-all hover:shadow-lg"
       >
         <div className="aspect-[16/9] overflow-hidden">
           <Image
@@ -36,13 +35,13 @@ export function ProjectCard({ project, idx }: ProjectCardProps) {
           />
         </div>
         <div className="p-6">
-          <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
-          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+          <h3 className="mb-2 text-xl font-bold text-foreground">{project.title}</h3>
+          <p className="mb-4 text-sm text-foreground/70 line-clamp-2">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.tags.map(tag => (
-              <span key={tag} className="text-xs font-medium px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-md">
+              <span key={tag} className="text-xs font-medium px-2 py-1 bg-foreground/5 text-foreground/80 rounded-md">
                 {tag}
               </span>
             ))}
