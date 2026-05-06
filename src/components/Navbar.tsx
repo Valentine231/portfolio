@@ -14,7 +14,7 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-const drawerVariants = {
+const drawerVariants: any = {
   hidden: { opacity: 0, height: 0 },
   visible: {
     opacity: 1,
@@ -33,7 +33,7 @@ const drawerVariants = {
   },
 };
 
-const linkVariants = {
+const linkVariants: any = {
   hidden: { opacity: 0, y: -8 },
   visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 220, damping: 24 } },
 };
@@ -62,7 +62,7 @@ export function Navbar() {
         hidden: { y: "-100%" },
       }}
       animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
+      transition={{ duration: 0.35, ease: "easeInOut" as const }}
       className="fixed top-0 z-40 w-full border-b border-gray-200/50 dark:border-gray-800/50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md"
     >
       {/* ─── Top bar ─── */}
