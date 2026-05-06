@@ -20,22 +20,22 @@ const drawerVariants = {
     opacity: 1,
     height: "auto",
     transition: {
-      duration: 0.35,
+      duration: 0.3,
       ease: [0.4, 0, 0.2, 1],
-      staggerChildren: 0.07,
-      delayChildren: 0.05,
+      staggerChildren: 0.06,
+      delayChildren: 0.04,
     },
   },
   exit: {
     opacity: 0,
     height: 0,
-    transition: { duration: 0.25, ease: "easeIn" },
+    transition: { duration: 0.22, ease: "easeIn" },
   },
 };
 
 const linkVariants = {
-  hidden: { opacity: 0, x: -16 },
-  visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 200, damping: 22 } },
+  hidden: { opacity: 0, y: -8 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 220, damping: 24 } },
 };
 
 export function Navbar() {
@@ -65,13 +65,17 @@ export function Navbar() {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className="fixed top-0 z-40 w-full border-b border-gray-200/50 dark:border-gray-800/50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md"
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      {/* ─── Top bar ─── */}
+      <div className="mx-auto flex h-14 sm:h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1 group font-bold text-xl tracking-tight text-gray-900 dark:text-white">
+        <Link
+          href="/"
+          className="flex items-center gap-1 group font-bold text-lg sm:text-xl tracking-tight text-gray-900 dark:text-white shrink-0"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
-            className="w-10 h-10 drop-shadow-[0_0_6px_rgba(37,99,235,0.4)] dark:drop-shadow-[0_0_6px_rgba(59,130,246,0.5)] transition-transform duration-300 group-hover:scale-110"
+            className="w-8 h-8 sm:w-10 sm:h-10 drop-shadow-[0_0_6px_rgba(37,99,235,0.4)] dark:drop-shadow-[0_0_6px_rgba(59,130,246,0.5)] transition-transform duration-300 group-hover:scale-110"
           >
             <g transform="translate(50, 75) rotate(35)">
               <path d="M 0 0 Q 8 -40 4 -70" strokeWidth="3.5" className="stroke-gray-400 dark:stroke-gray-300 transition-all duration-300 group-hover:stroke-blue-400" fill="none" strokeLinecap="round" />
@@ -90,7 +94,9 @@ export function Navbar() {
               <line x1="-8" y1="0" x2="8" y2="0" strokeWidth="4" className="stroke-blue-600 dark:stroke-blue-500" strokeLinecap="round" />
             </g>
           </svg>
-          <span className="text-2xl mt-1 -ml-1">al-tino<span className="text-blue-600 dark:text-blue-500">.</span></span>
+          <span className="text-xl sm:text-2xl mt-0.5 -ml-0.5">
+            al-tino<span className="text-blue-600 dark:text-blue-500">.</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -110,7 +116,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => setCommandMenuOpen(true)}
             className="hidden md:flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
@@ -119,33 +125,33 @@ export function Navbar() {
           </button>
           <ThemeToggle />
 
-          {/* Hamburger button — mobile only */}
+          {/* Hamburger — mobile only */}
           <motion.button
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg focus:outline-none"
+            className="md:hidden flex flex-col justify-center items-center w-9 h-9 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30"
             aria-label="Toggle menu"
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.88 }}
           >
             <motion.span
               animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: 0.22 }}
               className="block h-0.5 w-5 bg-gray-700 dark:bg-gray-200 rounded-full"
             />
             <motion.span
               animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.18 }}
               className="block h-0.5 w-5 bg-gray-700 dark:bg-gray-200 rounded-full mt-1.5"
             />
             <motion.span
               animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.25 }}
+              transition={{ duration: 0.22 }}
               className="block h-0.5 w-5 bg-gray-700 dark:bg-gray-200 rounded-full mt-1.5"
             />
           </motion.button>
         </div>
       </div>
 
-      {/* Mobile drawer */}
+      {/* ─── Mobile drawer ─── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.nav
@@ -154,15 +160,15 @@ export function Navbar() {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="md:hidden overflow-hidden border-t border-gray-200/50 dark:border-gray-800/50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-md"
+            className="md:hidden overflow-hidden border-t border-gray-200/50 dark:border-gray-800/50 bg-white/97 dark:bg-gray-950/97 backdrop-blur-md"
           >
-            <div className="flex flex-col px-6 py-4 gap-1">
+            <div className="flex flex-col px-4 py-3 gap-1">
               {links.map((link) => (
                 <motion.div key={link.href} variants={linkVariants}>
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-colors ${
+                    className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-medium transition-colors ${
                       pathname === link.href
                         ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -180,10 +186,10 @@ export function Navbar() {
               ))}
 
               {/* Command palette shortcut */}
-              <motion.div variants={linkVariants} className="pt-3 border-t border-gray-100 dark:border-gray-800 mt-2">
+              <motion.div variants={linkVariants} className="pt-2 border-t border-gray-100 dark:border-gray-800 mt-1">
                 <button
                   onClick={() => { setCommandMenuOpen(true); setMobileOpen(false); }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800/60 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                   <span>Search…</span>
                   <span className="text-xs bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded-md">⌘ K</span>

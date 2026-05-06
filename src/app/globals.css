@@ -41,13 +41,38 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* ─── Global reset & mobile guards ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* Prevent layout shifts from scrollbar appearing/disappearing */
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  /* Prevent horizontal scroll on mobile */
   overflow-x: hidden;
+  max-width: 100vw;
+  word-break: break-word;
+  -webkit-text-size-adjust: 100%;
 }
 
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── Utilities ─── */
 @utility glass {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);

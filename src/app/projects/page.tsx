@@ -11,7 +11,8 @@ const projects = [
   {
     id: 1,
     title: "ZenCart Nigerian Market Features",
-    description: "E-commerce app adapted for the Nigerian market featuring a Pidgin AI Chatbot, WhatsApp Business API ordering, Voice-to-Text processing, and Visual Proof Verification.",
+    description:
+      "E-commerce app adapted for the Nigerian market featuring a Pidgin AI Chatbot, WhatsApp Business API ordering, Voice-to-Text processing, and Visual Proof Verification.",
     category: "Fullstack",
     tags: ["Next.js", "OpenAI", "Paystack", "Supabase", "WhatsApp API"],
     image: "/images/Screenshot from 2026-04-22 22-45-58.png",
@@ -20,7 +21,8 @@ const projects = [
   {
     id: 2,
     title: "Food Dash - Food Delivery",
-    description: "A modern, premium food delivery platform built with a focus on user experience and seamless payment integration.",
+    description:
+      "A modern, premium food delivery platform built with a focus on user experience and seamless payment integration.",
     category: "Fullstack",
     tags: ["React", "Zustand", "Express", "Supabase", "Paystack"],
     image: "/images/Screenshot from 2026-04-22 23-05-27.png",
@@ -29,7 +31,8 @@ const projects = [
   {
     id: 3,
     title: "MyBox - Full-Stack Movie Application",
-    description: "A full-stack movie application to search movies via OMDb API, view details, and manage saved movies with JWT authentication.",
+    description:
+      "A full-stack movie application to search movies via OMDb API, view details, and manage saved movies with JWT authentication.",
     category: "Fullstack",
     tags: ["React", "Zustand", "Express", "MongoDB"],
     image: "/images/Screenshot from 2026-04-23 00-05-33.png",
@@ -37,10 +40,11 @@ const projects = [
   },
   {
     id: 4,
-    title: "50 reuseable UI Component Library",
-    description: "A sleek and modern UI component library built with next.js and Tailwind CSS, designed to help developers create beautiful interfaces with ease.",
+    title: "50 Reusable UI Component Library",
+    description:
+      "A sleek and modern UI component library built with Next.js and Tailwind CSS, designed to help developers create beautiful interfaces with ease.",
     category: "React",
-    tags: ["nextjs", "Zustand", "Tailwind CSS", "framer-motion"],
+    tags: ["Next.js", "Zustand", "Tailwind CSS", "Framer Motion"],
     image: "/images/Screenshot from 2026-05-02 12-27-41.png",
     link: "https://reuseable-ui.vercel.app/",
   },
@@ -54,14 +58,14 @@ export default function ProjectsPage() {
   );
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20 sm:px-6 lg:px-8 pt-24 sm:pt-28">
       <AnimatedSection>
-        <h1 className="mb-8 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+        <h1 className="mb-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           Projects
         </h1>
 
-        {/* Animated filter pill tabs */}
-        <div className="mb-12 flex flex-wrap gap-2">
+        {/* Filter pills — wrap on mobile */}
+        <div className="mb-8 flex flex-wrap gap-2">
           {filters.map((filter) => (
             <motion.button
               key={filter}
@@ -74,7 +78,6 @@ export default function ProjectsPage() {
                   : "text-foreground/70 hover:text-foreground bg-foreground/5 hover:bg-foreground/10"
               }`}
             >
-              {/* Sliding active pill background */}
               {activeFilter === filter && (
                 <motion.span
                   layoutId="activeFilterPill"
@@ -88,9 +91,9 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        {/* Animated project grid */}
+        {/* Project grid — single-col on mobile, 2-col at sm */}
         <AnimatePresence mode="popLayout">
-          <motion.div layout className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+          <motion.div layout className="grid gap-5 sm:gap-7 sm:grid-cols-2">
             {filteredProjects.map((project, idx) => (
               <ProjectCard key={project.id} project={project} idx={idx} />
             ))}
