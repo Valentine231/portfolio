@@ -1,18 +1,23 @@
 import nodemailer from "nodemailer";
 
-type contactBody = {
-    name: string;
-    email: string;
-    message: string;
-}
+type ContactBody = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   try {
-    const body: ContactBody = await req.json();
+    const body = (await req.json()) as ContactBody;
     const { name, email, message } = body;
 
     if (!name || !email || !message) {
-      return Response.json({ error: "All fields required" }, { status: 400 });
+      return Response.json(
+        { error: "All fields required" },
+        { status: 400 }
+      );
     }
 
     const transporter = nodemailer.createTransport({

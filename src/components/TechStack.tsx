@@ -3,6 +3,25 @@
 import { motion } from "framer-motion";
 import { Code2, Database, Layout, Server, Sparkles, Smartphone } from "lucide-react";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.09,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { type: "spring" as const, stiffness: 120, damping: 18 },
+  },
+};
+
 export function TechStack() {
   const technologies = [
     { name: "React / Next.js", icon: <Layout className="h-6 w-6" />, category: "Frontend Core" },
@@ -19,10 +38,11 @@ export function TechStack() {
       <div className="absolute top-0 right-0 -z-10 h-[300px] w-[300px] rounded-full bg-primary/10 blur-[100px] translate-x-1/2 -translate-y-1/4" />
 
       <div className="mx-auto max-w-5xl">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.55, ease: [0.4, 0, 0.2, 1] }}
           className="mb-12 text-center md:text-left"
         >
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Tech Stack</h2>
@@ -31,14 +51,18 @@ export function TechStack() {
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {technologies.map((tech, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
+        >
+          {technologies.map((tech) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.02 }}
+              variants={cardVariants}
+              whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              whileTap={{ scale: 0.97 }}
               key={tech.name}
               className="flex items-center gap-4 rounded-2xl glass p-6 cursor-pointer group"
             >
@@ -51,7 +75,7 @@ export function TechStack() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
