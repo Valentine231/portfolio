@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Download } from "lucide-react";
 
 export function Hero() {
   const containerVariants = {
@@ -50,7 +50,7 @@ export function Hero() {
           variants={itemVariants}
           className="mb-5 text-[2.4rem] leading-[1.15] font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60"
         >
-          Senior Frontend
+          Full Stack 
           <br />
           <span className="text-primary">Developer</span> & Designer
         </motion.h1>
@@ -60,25 +60,34 @@ export function Hero() {
           variants={itemVariants}
           className="mx-auto mb-8 max-w-xl px-2 text-[0.95rem] leading-relaxed text-foreground/60 sm:text-lg sm:max-w-2xl sm:px-0"
         >
-          I build modern, clean, and interactive user interfaces with a focus on
-          seamless user experiences, minimal aesthetics, and high performance.
+          I build scalable, modern, and interactive full-stack applications with a focus on
+          seamless user experiences, robust backend architectures, and high performance.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center"
+          className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-center flex-wrap"
         >
           <a
-            href="#projects"
+            href="/Ugwu Valentine (6).pdf"
+            download="Ugwu Valentine (6).pdf"
             className="group flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+          >
+            <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+            Download CV
+          </a>
+
+          <a
+            href="#projects"
+            className="group flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-foreground ring-1 ring-foreground/10 transition-all glass-hover"
           >
             View Projects
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
 
           <a
-            href="#contact"
+            href="/contact"
             className="flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-foreground ring-1 ring-foreground/10 transition-all glass-hover"
           >
             <Mail className="h-4 w-4" />

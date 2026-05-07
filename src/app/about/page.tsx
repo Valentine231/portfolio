@@ -15,18 +15,18 @@ export default function AboutPage() {
         </h1>
         <div className="prose prose-base dark:prose-invert text-foreground/80 max-w-none">
           <p className="leading-relaxed text-sm sm:text-base">
-            I&apos;m Valentine Ugwu, a frontend developer based in Nigeria, crafting modern web
-            applications that are fast, intuitive, and visually refined.
+            I&apos;m Valentine Ugwu, a full-stack developer based in Nigeria, crafting scalable, modern web
+            applications that are fast, intuitive, and robust from frontend to backend.
           </p>
           <p className="leading-relaxed text-sm sm:text-base mt-4">
-            I specialize in React and Next.js, building interfaces that go beyond
-            functionality—focused on performance, seamless user experience, and thoughtful
-            interaction. My work includes API integrations, authentication systems, and real-world
-            features like payments and dynamic data handling.
+            I specialize in React, Next.js, and Node.js, building applications that go beyond
+            functionality—focused on performance, clean architecture, and thoughtful
+            interaction. My work includes REST API integrations, scalable backend architecture, 
+            authentication systems, and real-time features like WebRTC and WebSockets.
           </p>
           <p className="leading-relaxed text-sm sm:text-base mt-4">
-            I approach every project with a product mindset, paying close attention to structure,
-            scalability, and the subtle details that elevate a good interface into a great one.
+            I approach every project with a full-stack mindset, paying close attention to structure,
+            database performance (Supabase, MongoDB), and the subtle details that elevate a good interface into a great user experience.
           </p>
           <p className="leading-relaxed text-sm sm:text-base mt-4">
             I&apos;m currently open to remote opportunities, collaborating with teams to build

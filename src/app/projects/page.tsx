@@ -48,6 +48,16 @@ const projects = [
     image: "/images/Screenshot from 2026-05-02 12-27-41.png",
     link: "https://reuseable-ui.vercel.app/",
   },
+  {
+    id: 5,
+    title: "Real-Time Chat Application (weCHAT App)",
+    description:
+      "A real-time messaging application featuring low-latency communication via WebRTC, secure authentication, and robust session management.",
+    category: "Fullstack",
+    tags: ["React", "Supabase", "WebRTC", "Material UI"],
+    image: "/images/Screenshot from 2026-04-22 23-05-27.png",
+    link: "https://github.com/Valentine231",
+  },
 ];
 
 export default function ProjectsPage() {

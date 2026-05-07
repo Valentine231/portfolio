@@ -94,8 +94,8 @@ export function Navbar() {
               <line x1="-8" y1="0" x2="8" y2="0" strokeWidth="4" className="stroke-blue-600 dark:stroke-blue-500" strokeLinecap="round" />
             </g>
           </svg>
-          <span className="text-xl sm:text-2xl mt-0.5 -ml-0.5">
-            al-tino<span className="text-blue-600 dark:text-blue-500">.</span>
+          <span className="text-base sm:text-lg mt-0.5 -ml-0.5 leading-tight">
+            Valentine Ugwu<span className="text-blue-600 dark:text-blue-500"> Portfolio</span>
           </span>
         </Link>
 
