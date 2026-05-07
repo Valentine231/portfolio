@@ -58,16 +58,8 @@ export function FeaturedProjects() {
       stack: ["Next.js", "Zustand", "Tailwind CSS", "Framer Motion"],
       liveUrl: "https://reuseable-ui.vercel.app/",
       githubUrl: "https://github.com/Valentine231/reuseable-ui",
-    },
-    {
-      title: "Real-Time Chat Application (weCHAT App)",
-      description:
-        "A real-time messaging application featuring low-latency communication via WebRTC, secure authentication, and robust session management.",
-      image: "/images/Screenshot from 2026-04-22 23-05-27.png",
-      stack: ["React", "Supabase", "WebRTC", "Material UI"],
-      liveUrl: "https://github.com/Valentine231",
-      githubUrl: "https://github.com/Valentine231",
-    },
+    }
+    
   ];
 
   return (
